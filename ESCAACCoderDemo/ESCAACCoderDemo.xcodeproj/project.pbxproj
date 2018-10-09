@@ -18,6 +18,8 @@
 		F02338C6216C8DBA00785305 /* libmp4ff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F02338C4216C8DB900785305 /* libmp4ff.a */; };
 		F02338C8216C8F3A00785305 /* vocal.pcm in Resources */ = {isa = PBXBuildFile; fileRef = F02338C7216C8F3A00785305 /* vocal.pcm */; };
 		F02338CA216C995100785305 /* vocal.aac in Resources */ = {isa = PBXBuildFile; fileRef = F02338C9216C995100785305 /* vocal.aac */; };
+		F02338CD216C9A7200785305 /* ESCFAACDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = F02338CB216C9A7200785305 /* ESCFAACDecoder.m */; };
+		F02338D0216CA28A00785305 /* ESCAACEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = F02338CF216CA28A00785305 /* ESCAACEncoder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,10 @@
 		F02338C4216C8DB900785305 /* libmp4ff.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp4ff.a; sourceTree = "<group>"; };
 		F02338C7216C8F3A00785305 /* vocal.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = vocal.pcm; sourceTree = "<group>"; };
 		F02338C9216C995100785305 /* vocal.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = vocal.aac; sourceTree = "<group>"; };
+		F02338CB216C9A7200785305 /* ESCFAACDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESCFAACDecoder.m; sourceTree = "<group>"; };
+		F02338CC216C9A7200785305 /* ESCFAACDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESCFAACDecoder.h; sourceTree = "<group>"; };
+		F02338CE216CA28A00785305 /* ESCAACEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESCAACEncoder.h; sourceTree = "<group>"; };
+		F02338CF216CA28A00785305 /* ESCAACEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESCAACEncoder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,10 @@
 				F02338A2216C452400785305 /* ViewController.h */,
 				F02338A3216C452400785305 /* ViewController.m */,
 				F02338A5216C452400785305 /* Main.storyboard */,
+				F02338CE216CA28A00785305 /* ESCAACEncoder.h */,
+				F02338CF216CA28A00785305 /* ESCAACEncoder.m */,
+				F02338CC216C9A7200785305 /* ESCFAACDecoder.h */,
+				F02338CB216C9A7200785305 /* ESCFAACDecoder.m */,
 				F02338A8216C452B00785305 /* Assets.xcassets */,
 				F02338AA216C452B00785305 /* LaunchScreen.storyboard */,
 				F02338AD216C452B00785305 /* Info.plist */,
@@ -222,6 +232,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F02338A4216C452400785305 /* ViewController.m in Sources */,
+				F02338D0216CA28A00785305 /* ESCAACEncoder.m in Sources */,
+				F02338CD216C9A7200785305 /* ESCFAACDecoder.m in Sources */,
 				F02338AF216C452B00785305 /* main.m in Sources */,
 				F02338A1216C452400785305 /* AppDelegate.m in Sources */,
 			);

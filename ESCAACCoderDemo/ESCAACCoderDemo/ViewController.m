@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "faac/include/faac.h"
+#import "ESCFAACDecoder.h"
 
 typedef unsigned long   ULONG;
 typedef unsigned int    UINT;
@@ -25,6 +26,8 @@ typedef char            _TCHAR;
     // Do any additional setup after loading the view, typically from a nib.
     
     [self PCMToAAC];
+    
+    [self AACToPCM];
 }
 
 
@@ -103,8 +106,7 @@ typedef char            _TCHAR;
         }
         fwrite(pbAACBuffer, 1, nRet, fpOut);
     }
-    while( (nRet = faacEncEncode(hEncoder, NULL, 0, pbAACBuffer, (unsigned int)nMaxOutputBytes)) > 0 )
-    {
+    while( (nRet = faacEncEncode(hEncoder, NULL, 0, pbAACBuffer, (unsigned int)nMaxOutputBytes)) > 0 ) {
         fwrite(pbAACBuffer, 1, nRet, fpOut);
     }
     printf("usetime:%lu\n",clock()-temp1);
@@ -116,6 +118,24 @@ typedef char            _TCHAR;
 }
 
 - (void)AACToPCM {
+    
+    FAADContext *context = faad_decoder_create(44100, 2, 1024);
+    
+    NSString *aacPath = [[NSBundle mainBundle] pathForResource:@"vocal.aac" ofType:nil];
+    NSData *aacData = [NSData dataWithContentsOfFile:aacPath];
+    unsigned char *pAACData = aacData.bytes;
+    
+    unsigned char *pcmData;
+    unsigned int pcmLen = 0;
+    faad_decode_frame(context, pAACData, aacData.length, pcmData, &pcmLen);
+    faad_decode_close(context);
+    
+    if (pcmLen > 0) {
+        NSData *pcmdata = [NSData dataWithBytes:pcmData length:pcmLen];
+        NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+        NSString *pcmPath = [NSString stringWithFormat:@"%@/vocal.pcm",cachesPath];
+        [pcmdata writeToFile:pcmPath atomically:YES];
+    }
     
 }
 
