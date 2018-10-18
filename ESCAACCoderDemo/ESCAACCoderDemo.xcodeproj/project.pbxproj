@@ -20,6 +20,7 @@
 		F02338CA216C995100785305 /* vocal.aac in Resources */ = {isa = PBXBuildFile; fileRef = F02338C9216C995100785305 /* vocal.aac */; };
 		F02338CD216C9A7200785305 /* ESCFAACDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = F02338CB216C9A7200785305 /* ESCFAACDecoder.m */; };
 		F02338D0216CA28A00785305 /* ESCAACEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = F02338CF216CA28A00785305 /* ESCAACEncoder.m */; };
+		F0F141C92178532000C883F8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F141C82178532000C883F8 /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		F02338CC216C9A7200785305 /* ESCFAACDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESCFAACDecoder.h; sourceTree = "<group>"; };
 		F02338CE216CA28A00785305 /* ESCAACEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESCAACEncoder.h; sourceTree = "<group>"; };
 		F02338CF216CA28A00785305 /* ESCAACEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESCAACEncoder.m; sourceTree = "<group>"; };
+		F0F141C82178532000C883F8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0F141C92178532000C883F8 /* libc++.tbd in Frameworks */,
 				F02338C6216C8DBA00785305 /* libmp4ff.a in Frameworks */,
 				F02338BB216C8DB500785305 /* libfaac.a in Frameworks */,
 				F02338C5216C8DB900785305 /* libfaad.a in Frameworks */,
@@ -69,6 +72,7 @@
 			children = (
 				F023389E216C452400785305 /* ESCAACCoderDemo */,
 				F023389D216C452400785305 /* Products */,
+				F0F141C72178531F00C883F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,6 +161,14 @@
 				F02338C4216C8DB900785305 /* libmp4ff.a */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		F0F141C72178531F00C883F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0F141C82178532000C883F8 /* libc++.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -10,6 +10,7 @@
 #import "faac/include/faac.h"
 #import "ESCFAACDecoder.h"
 
+
 typedef unsigned long   ULONG;
 typedef unsigned int    UINT;
 typedef unsigned char   BYTE;
@@ -25,7 +26,7 @@ typedef char            _TCHAR;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self PCMToAAC];
+//    [self PCMToAAC];
     
     [self AACToPCM];
 }
@@ -124,7 +125,11 @@ typedef char            _TCHAR;
     NSString *aacPath = [[NSBundle mainBundle] pathForResource:@"vocal.aac" ofType:nil];
     NSData *aacData = [NSData dataWithContentsOfFile:aacPath];
     unsigned char *pAACData = aacData.bytes;
-    
+    if (aacData == nil || aacData.length <= 0) {
+        faad_decode_close(context);
+        NSLog(@"读取数据失败");
+        return;
+    }
     unsigned char *pcmData;
     unsigned int pcmLen = 0;
     faad_decode_frame(context, pAACData, aacData.length, pcmData, &pcmLen);
@@ -135,7 +140,10 @@ typedef char            _TCHAR;
         NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
         NSString *pcmPath = [NSString stringWithFormat:@"%@/vocal.pcm",cachesPath];
         [pcmdata writeToFile:pcmPath atomically:YES];
+    }else{
+        NSLog(@"aac to pcm failed!");
     }
+    
     
 }
 
