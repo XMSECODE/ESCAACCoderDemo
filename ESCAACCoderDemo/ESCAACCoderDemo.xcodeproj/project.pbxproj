@@ -20,6 +20,7 @@
 		F02338CA216C995100785305 /* vocal.aac in Resources */ = {isa = PBXBuildFile; fileRef = F02338C9216C995100785305 /* vocal.aac */; };
 		F02338CD216C9A7200785305 /* ESCFAACDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = F02338CB216C9A7200785305 /* ESCFAACDecoder.m */; };
 		F02338D0216CA28A00785305 /* ESCAACEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = F02338CF216CA28A00785305 /* ESCAACEncoder.m */; };
+		F0762A85217F069500442B9C /* 8000_1_16.pcm in Resources */ = {isa = PBXBuildFile; fileRef = F0762A84217F069400442B9C /* 8000_1_16.pcm */; };
 		F0F141C92178532000C883F8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F141C82178532000C883F8 /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		F02338CC216C9A7200785305 /* ESCFAACDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESCFAACDecoder.h; sourceTree = "<group>"; };
 		F02338CE216CA28A00785305 /* ESCAACEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESCAACEncoder.h; sourceTree = "<group>"; };
 		F02338CF216CA28A00785305 /* ESCAACEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESCAACEncoder.m; sourceTree = "<group>"; };
+		F0762A84217F069400442B9C /* 8000_1_16.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = 8000_1_16.pcm; sourceTree = "<group>"; };
 		F0F141C82178532000C883F8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 		F023389E216C452400785305 /* ESCAACCoderDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F0762A84217F069400442B9C /* 8000_1_16.pcm */,
 				F02338C7216C8F3A00785305 /* vocal.pcm */,
 				F02338C9216C995100785305 /* vocal.aac */,
 				F02338BC216C8DB900785305 /* faad */,
@@ -231,6 +234,7 @@
 				F02338C8216C8F3A00785305 /* vocal.pcm in Resources */,
 				F02338AC216C452B00785305 /* LaunchScreen.storyboard in Resources */,
 				F02338A9216C452B00785305 /* Assets.xcassets in Resources */,
+				F0762A85217F069500442B9C /* 8000_1_16.pcm in Resources */,
 				F02338CA216C995100785305 /* vocal.aac in Resources */,
 				F02338A7216C452400785305 /* Main.storyboard in Resources */,
 			);
