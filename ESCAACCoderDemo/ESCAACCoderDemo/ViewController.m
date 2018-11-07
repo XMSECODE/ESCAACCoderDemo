@@ -49,7 +49,7 @@ typedef char            _TCHAR;
     FILE* fpOut; // AAC file for output
     
     
-    NSString *pcmPath = [[NSBundle mainBundle] pathForResource:@"8000_1_16.pcm" ofType:nil];
+    NSString *pcmPath = [[NSBundle mainBundle] pathForResource:@"8000_16_1_1.pcm" ofType:nil];
     fpIn = fopen([pcmPath cStringUsingEncoding:NSUTF8StringEncoding], "rb");
     
     NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;

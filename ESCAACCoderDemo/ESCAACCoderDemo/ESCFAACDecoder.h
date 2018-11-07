@@ -13,12 +13,11 @@
 #include <stdio.h>
 
 //aac数据状态
-typedef enum fAccDataStatus
-{
+typedef enum {
     AccDataStatus_NotKnown            =        0x00,            //未知
     AccDataStatus_InValid            =        0x01,            //非法
     AccDataStatus_Valid                =        0x02,            //合法
-};
+}fAccDataStatus;
 
 typedef struct {
     NeAACDecHandle handle;
