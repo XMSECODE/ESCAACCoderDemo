@@ -12,6 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ESCAACEncoder : NSObject
 
+- (void)setupEncoderWithSampleRate:(int)sampleRate channels:(int)channels sampleBit:(int)sampleBit;
+
+- (NSData *)encodePCMDataWithPCMData:(NSData *)pcmData;
+
+- (void)closeEncoder;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
