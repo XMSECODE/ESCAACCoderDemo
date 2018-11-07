@@ -26,9 +26,9 @@ typedef char            _TCHAR;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self PCMToAAC2];
+//    [self PCMToAAC2];
     
-//    [self AACToPCM];
+    [self AACToPCM2];
 }
 
 - (void)PCMToAAC2 {
@@ -204,32 +204,53 @@ typedef char            _TCHAR;
 }
 
 - (void)AACToPCM {
-    
-    FAADContext *context = faad_decoder_create(44100, 2, 1024);
+        
+    ESCFAACDecoder *aacDecoder = [[ESCFAACDecoder alloc] init];
+    [aacDecoder createDecoderWithSampleRate:44100 channels:2 bitRate:20480];
     
     NSString *aacPath = [[NSBundle mainBundle] pathForResource:@"vocal.aac" ofType:nil];
     NSData *aacData = [NSData dataWithContentsOfFile:aacPath];
-    unsigned char *pAACData = aacData.bytes;
     if (aacData == nil || aacData.length <= 0) {
-        faad_decode_close(context);
+        [aacDecoder closeDecoder];
         NSLog(@"读取数据失败");
         return;
     }
-    unsigned char *pcmData;
-    unsigned int pcmLen = 0;
-    faad_decode_frame(context, pAACData, aacData.length, pcmData, &pcmLen);
-    faad_decode_close(context);
     
-    if (pcmLen > 0) {
-        NSData *pcmdata = [NSData dataWithBytes:pcmData length:pcmLen];
+    NSData *pcmdata = [aacDecoder decodeAACDataWithAACData:aacData];
+    [aacDecoder closeDecoder];
+    
+    if (pcmdata.length > 0) {
         NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
         NSString *pcmPath = [NSString stringWithFormat:@"%@/vocal.pcm",cachesPath];
         [pcmdata writeToFile:pcmPath atomically:YES];
     }else{
         NSLog(@"aac to pcm failed!");
     }
+}
+
+- (void)AACToPCM2 {
     
+    ESCFAACDecoder *aacDecoder = [[ESCFAACDecoder alloc] init];
+    [aacDecoder createDecoderWithSampleRate:8000 channels:1 bitRate:20480];
     
+    NSString *aacPath = [[NSBundle mainBundle] pathForResource:@"8000_16_1.aac" ofType:nil];
+    NSData *aacData = [NSData dataWithContentsOfFile:aacPath];
+    if (aacData == nil || aacData.length <= 0) {
+        [aacDecoder closeDecoder];
+        NSLog(@"读取数据失败");
+        return;
+    }
+    
+    NSData *pcmdata = [aacDecoder decodeAACDataWithAACData:aacData];
+    [aacDecoder closeDecoder];
+    
+    if (pcmdata.length > 0) {
+        NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+        NSString *pcmPath = [NSString stringWithFormat:@"%@/vocal.pcm",cachesPath];
+        [pcmdata writeToFile:pcmPath atomically:YES];
+    }else{
+        NSLog(@"aac to pcm failed!");
+    }
 }
 
 @end

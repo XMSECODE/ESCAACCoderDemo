@@ -11,6 +11,7 @@
 #import "faad.h"
 
 #include <stdio.h>
+#import <Foundation/Foundation.h>
 
 //aac数据状态
 typedef enum {
@@ -19,19 +20,16 @@ typedef enum {
     AccDataStatus_Valid                =        0x02,            //合法
 }fAccDataStatus;
 
-typedef struct {
-    NeAACDecHandle handle;
-    int sample_rate;
-    int channels;
-    int bit_rate;
-    NeAACDecFrameInfo frame_info;
-    int m_nFirstPackageAccDataStatus;        //第一数据包状态
-    int m_bNeAACDecInit;
-}FAADContext;
+@interface ESCFAACDecoder : NSObject
 
-FAADContext* faad_decoder_create(int sample_rate, int channels, int bit_rate);
-int faad_decode_frame(FAADContext *pParam, unsigned char *pData, int nLen, unsigned char *pPCM, unsigned int *outLen);
-void faad_decode_close(FAADContext *pParam);
+- (BOOL)createDecoderWithSampleRate:(int)sampleRate channels:(int)channels bitRate:(int)bitRate;
+
+- (NSData *)decodeAACDataWithAACData:(NSData *)aacData;
+
+- (void)closeDecoder;
+
+@end
+
 
 #endif /* ESCFAACDecoder_h */
 
