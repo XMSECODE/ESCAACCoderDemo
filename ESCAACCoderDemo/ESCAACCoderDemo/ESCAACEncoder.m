@@ -56,7 +56,7 @@
         NSLog(@"set failed!");
     }
     
-    
+
 }
 
 - (NSData *)encodePCMDataWithPCMData:(NSData *)pcmData {
